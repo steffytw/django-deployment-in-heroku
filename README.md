@@ -70,3 +70,28 @@ COMMANDS
 ```
 heroku login
 ```
+- Step 6 :Install [Gunocorn](https://pypi.org/project/gunicorn/),Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX.The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resource usage, and fairly speedy .
+
+```
+pip install gunicorn
+```
+- Step 7 :To show the currently installed package with version run the command below
+```
+pip freeze 
+
+```
+- Step 8 :Save the currently installed package with version in  requirements.txt file
+
+```
+pip freeze > requirements.txt
+
+```
+- Step 9 : Initialized the folder in the Git repository
+
+```
+$ git init
+
+Initialized empty Git repository in /home/steffy/Desktop/django-heroku/.git/
+
+```
+- Step 10 : Create a [.gitignore file](https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore) in the folder

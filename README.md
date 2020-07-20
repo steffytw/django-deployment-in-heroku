@@ -163,7 +163,7 @@ STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles')
 
 ```
 
-- Step 19 : Do the steps 11 -15 to commit the changes in the git and Push the data to the heroku master using the step 17 then run the command in Step 16.It will shows an aplication error with heroku logs --tail.Run the command below
+- Step 19 : Do the steps 11 -14 to commit the changes in the git and Push the data to the heroku master using the step 17 then run the command in Step 16.It will shows an aplication error with heroku logs --tail.Run the command below
 ```
 $ heroku logs --tail
 

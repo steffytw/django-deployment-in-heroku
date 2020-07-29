@@ -12,7 +12,7 @@
 - Step 4 :Activate the django virtual environment and run the command heroku on your terminal
 
 ```
-(venv) steffy@steffy:~/Desktop/django-heroku$ heroku
+(venv) steffy@steffy:~/django-heroku$ heroku
 
 CLI to interact with Heroku
 

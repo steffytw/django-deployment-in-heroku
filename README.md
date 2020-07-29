@@ -165,7 +165,7 @@ $ heroku logs --tail
 
 ```
 
-- Step 19 : Stop the running process using ctrl+c.No web processes is running .So Create a ProcFile in the root Folder  with no extentions.It is simply a textfile. Type the data shown below in  the Procfile.Make sure that it should be written correct!.Note it: No extra spacing sholuld be there.Here web: means the web-process type(web traffic when processed)  ,gunicorn- command needed to run the web process (python code to talk with the web process),djangoProject1-django project foldername ,wsgi-web service gateway interface.
+- Step 19 : Stop the running process using ctrl+c.No web processes is running .First, and most importantly, Heroku web applications require a Procfile.This file is used to explicitly declare your application’s process types and entry points. It is located in the root of your repository.So Create a ProcFile in the root Folder  with no extentions.It is simply a textfile. Type the data shown below in  the Procfile.Make sure that it should be written correct!.Note it: No extra spacing sholuld be there.Here web: means the web-process type(web traffic when processed)  ,gunicorn- command needed to run the web process (python code to talk with the web process),djangoProject1-django project foldername ,wsgi-web service gateway interface.
 
 ```
 web: gunicorn djangoProject1.wsgi
@@ -219,12 +219,12 @@ Setting DATABASE_URL and restarting myawesomepythondjangoapp... done, v4
 Database has been created and is available
 
 ```
-- Step 25 :  To automaticaly configure your  files in heroku ,install django-heroku.
+- Step 25 :  To automatically configure your  application in heroku ,install django-heroku.The django-heroku package automatically configures your Django application to work on Heroku.jango 2.0 is targeted, but older versions of Django should be compatible. Only Python 3 is supported.
 ```
 pip install django-heroku
 
 ```
-- Step 26 :  Go to settings.py and import django-heroku
+- Step 26 :  Go to settings.py and import django-heroku.This is a Django library for Heroku applications that ensures a seamless deployment and development experience.
 ```
 import django_heroku
 

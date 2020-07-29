@@ -127,13 +127,7 @@ git commit -m "Initial Commit"
 
 ```
 
-- Step 14 : To show the current status that what all files had to be committed in the git run the command below:
-```
-git status
-
-```
-
-- Step 15 : Create an app in Heroku.If the name you had given is existing then change the name and create another name.At first I had given mypythondjangoapp as my app name , it was an existing one .Then I changed it to myawesomepythondjangoapp,it was a unique name so it had create myawesomepythondjangoapp in heroku.
+- Step 14 :Create an app in Heroku.If the name you had given is existing then change the name and create another name.At first I had given mypythondjangoapp as my app name , it was an existing one .Then I changed it to myawesomepythondjangoapp,it was a unique name so it had create myawesomepythondjangoapp in heroku.
 ```
 $ heroku create mypythondjangoapp
 
@@ -144,26 +138,25 @@ Creating ⬢ myawesomepythondjangoapp... done
 https://myawesomepythondjangoapp.herokuapp.com/ | https://git.heroku.com/myawesomepythondjangoapp.git
 
 ```
-
-- Step 16 : Open your App in Heroku.
+- Step 15 : Open your App in Heroku.
 ```
 $ heroku open
 
 ```
-- Step 17 : Push the data to the git after commiting the changes.
+- Step 16 :  Push the data to the git after commiting the changes.
 ```
 git push heroku master
 
 ```
 
-
-- Step 18 : When you open the app, it shows an error that static root is not set.Set Up The Static Assets.STATIC_ROOT is needed for heroku to set up the files.Go to Setting.py file in the project folder and add the STATIC_ROOT.
+- Step 17 : When you open the app, it shows an error that static root is not set.Set Up The Static Assets.STATIC_ROOT is needed for heroku to set up the files.Go to Setting.py file in the project folder and add the STATIC_ROOT.
 ```
 STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles')
 
 ```
 
-- Step 19 : Do the steps 11 -14 to commit the changes in the git and Push the data to the heroku master using the step 17 then run the command in Step 16.It will shows an aplication error with heroku logs --tail.Run the command below
+
+- Step 18 : Do the steps 11 -13 to commit the changes in the git and Push the data to the heroku master using the step 16 then run the command in Step 15.It will shows an aplication error with heroku logs --tail.Run the command below
 ```
 $ heroku logs --tail
 
@@ -172,12 +165,143 @@ $ heroku logs --tail
 
 ```
 
-- Step 20 : No web processes is running .So Create a ProcFile in the root Folder  with no extentions.It is simply a textfile. Type the data shown below in  the Procfile.Make sure that it should be written correct!.Note it: No extra spacing sholuld be there.Here web: means the web-process type(web traffic when processed)  ,gunicorn- command needed to run the web process (python code to talk with the web process),djangoProject1-django project foldername ,wsgi-web service gateway interface.
+- Step 19 : Stop the running process using ctrl+c.No web processes is running .So Create a ProcFile in the root Folder  with no extentions.It is simply a textfile. Type the data shown below in  the Procfile.Make sure that it should be written correct!.Note it: No extra spacing sholuld be there.Here web: means the web-process type(web traffic when processed)  ,gunicorn- command needed to run the web process (python code to talk with the web process),djangoProject1-django project foldername ,wsgi-web service gateway interface.
 
 ```
 web: gunicorn djangoProject1.wsgi
 
 ```
 
+- Step 20 : Do the steps 11 -13 to commit the changes in the git and Push the data to the heroku master using the step 16 then run the command in Step 15 to open the application.It will shows an error DisallowedHost.
+```
+DisallowedHost at /
+Invalid HTTP_HOST header: 'myawesomepythondjangoapp.herokuapp.com'. You may need to add 'myawesomepythondjangoapp.herokuapp.com' to ALLOWED_HOSTS.
+Request Method:	GET
+Request URL:	https://myawesomepythondjangoapp.herokuapp.com/
+Django Version:	3.0.6
+Exception Type:	DisallowedHost
+Exception Value:	
+Invalid HTTP_HOST header: 'myawesomepythondjangoapp.herokuapp.com'. You may need to add 'myawesomepythondjangoapp.herokuapp.com' to ALLOWED_HOSTS.
+Exception Location:	/app/.heroku/python/lib/python3.6/site-packages/django/http/request.py in get_host, line 122
+Python Executable:	/app/.heroku/python/bin/python
+Python Version:	3.6.11
+Python Path:	
+['/app/.heroku/python/bin',
+ '/app',
+ '/app/.heroku/python/lib/python36.zip',
+ '/app/.heroku/python/lib/python3.6',
+ '/app/.heroku/python/lib/python3.6/lib-dynload',
+ '/app/.heroku/python/lib/python3.6/site-packages']
+Server time:	Mon, 13 Jul 2020 12:18:04 +0000
 
+
+```
+- Step 21 : You may need to add host address to ALLOWED_HOSTS.So go to settings.py in the project folder.there you can see ALLOWED_HOSTS = [] ,paste the app address inside it as shown below
+```
+ALLOWED_HOSTS = ['myawesomepythondjangoapp.herokuapp.com']
+
+```
+
+- Step 22 :  Do the steps 11 -13 to commit the changes in the git and Push the data to the heroku master using the step 16 then run the command in Step 15 to open the application.It will shows your website.
+```
+git push heroku master
+
+```
+
+- Step 23 :  To add the database in the heroku.Run the command below:
+```
+git push heroku master
+
+```
+- Step 24 :  Add a PostgreSQL database to your app in heroku.hobby-dev is a free plan in heroku.
+```
+$ heroku addons:create heroku-postgresql:hobby-dev
+
+Creating postgresql-metric-21979... done, (free)
+Adding postgresql-metric-21979 to myawesomepythondjangoapp... done
+Setting DATABASE_URL and restarting myawesomepythondjangoapp... done, v4
+Database has been created and is available
+
+```
+- Step 25 :  To automaticaly configure your  files in heroku ,install django-heroku.
+```
+pip install django-heroku
+
+```
+- Step 26 :  Go settings.py and import django-heroku
+```
+import django_heroku
+
+
+django_heroku.settings(locals())
+
+```
+- Step 27 :  Save the currently installed package with version in  requirements.txt file.
+```
+pip freeze > reqirements.txt
+
+```
+- Step 28 :  Do the steps 11 -13 to commit the changes in the git and Push the data to the heroku master using the step 16 then run the command in Step 15 to open the application.It will show your website.
+
+- Step 29 :To Login in the django admin,Make migration in the heroku app.Run python manage.py migrate in heroku cli.
+```
+$ heroku run python manage.py migrate
+
+
+
+
+Running python manage.py migrate on ⬢ myawesomepythondjangoapp... up, run.6653 (Free)
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, djangoapp, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying djangoapp.0001_initial... OK
+  Applying djangoapp.0002_employee... OK
+  Applying djangoapp.0003_auto_20200526_1126... OK
+  Applying djangoapp.0004_student_gender... OK
+  Applying djangoapp.0005_registration... OK
+  Applying djangoapp.0006_auto_20200608_1215... OK
+  Applying djangoapp.0007_auto_20200610_1238... OK
+  Applying djangoapp.0008_college_media... OK
+  Applying djangoapp.0009_auto_20200615_1013... OK
+  Applying djangoapp.0010_auto_20200620_0539... OK
+  Applying sessions.0001_initial... OK
+
+
+```
+- Step 30 :To create a  super user in djando admin have to move inside  the heroku mashine.Run bash moves to the heroku machine which are called dianos they are  linux systems.So had to run linux commamnds inside it
+```
+$ heroku run bash
+
+Running bash on ⬢ myawesomepythondjangoapp... up, run.1287 (Free)
+
+~ $ ls
+
+djangoapp	manage.py  Procfile	     runtime.txt djangoProject1	Media	   requirements.txt  staticfiles
+
+~ $ python manage.py createsuperuser
+Username (leave blank to use 'u33233'): admin
+Email address: admin@gmail.com
+Password: 
+Password (again): 
+Superuser created successfully.
+~ $ exit
+exit
+
+```
 

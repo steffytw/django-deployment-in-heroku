@@ -203,14 +203,10 @@ ALLOWED_HOSTS = ['myawesomepythondjangoapp.herokuapp.com']
 ```
 
 - Step 22 :  Do the steps 11 -13 to commit the changes in the git and Push the data to the heroku master using the step 16 then run the command in Step 15 to open the application.It will shows your website.
-```
-git push heroku master
 
+- Step 23 : Heroku add-ons are components that support your application, such as data storage, monitoring, analytics, data processing, and more. These are fully maintained for you by either a third-party provider or by Heroku.
 ```
-
-- Step 23 :  To add the database in the heroku.Run the command below:
-```
-git push heroku master
+heroku addons
 
 ```
 - Step 24 :  Add a PostgreSQL database to your app in heroku.hobby-dev is a free plan in heroku.

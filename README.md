@@ -228,7 +228,7 @@ Database has been created and is available
 pip install django-heroku
 
 ```
-- Step 26 :  Go settings.py and import django-heroku
+- Step 26 :  Go to settings.py and import django-heroku
 ```
 import django_heroku
 
@@ -284,7 +284,7 @@ Running migrations:
 
 
 ```
-- Step 30 :To create a  super user in djando admin have to move inside  the heroku mashine.Run bash moves to the heroku machine which are called dianos they are  linux systems.So had to run linux commamnds inside it
+- Step 30 :To create a super user in django admin, have to move inside  the heroku machine.Run bash moves to the heroku machine which are called dianos they are  linux systems.So had to run linux commamnds inside it
 ```
 $ heroku run bash
 

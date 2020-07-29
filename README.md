@@ -219,7 +219,7 @@ Setting DATABASE_URL and restarting myawesomepythondjangoapp... done, v4
 Database has been created and is available
 
 ```
-- Step 25 :  To automatically configure your  application in heroku ,install django-heroku.The django-heroku package automatically configures your Django application to work on Heroku.jango 2.0 is targeted, but older versions of Django should be compatible. Only Python 3 is supported.
+- Step 25 :  To automatically configure your  application in heroku ,install django-heroku.The django-heroku package automatically configures your Django application to work on Heroku.Django 2.0 is targeted, but older versions of Django should be compatible. Only Python 3 is supported.
 ```
 pip install django-heroku
 

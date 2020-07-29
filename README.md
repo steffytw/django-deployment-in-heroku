@@ -9,10 +9,10 @@
     * [Git installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
     * [First-time Git setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
 
-- Step 4 :Run the command heroku on your terminal
+- Step 4 :Activate the django virtual environment and run the command heroku on your terminal
 
 ```
-$ heroku
+(venv) steffy@steffy:~/Desktop/django-heroku$ heroku
 
 CLI to interact with Heroku
 

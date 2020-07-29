@@ -304,4 +304,5 @@ Superuser created successfully.
 exit
 
 ```
+- Step 31 :  Login  with your credentials in django admin in your heroku app.
 

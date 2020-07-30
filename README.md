@@ -12,7 +12,12 @@
 - Step 4 :Activate the django virtual environment and run the command heroku on your terminal
 
 ```
-(venv) steffy@steffy:~/django-heroku$ heroku
+heroku
+
+```
+output:
+
+```
 
 CLI to interact with Heroku
 
@@ -70,6 +75,13 @@ COMMANDS
 ```
 heroku login
 ```
+output:
+```
+Enter your Heroku credentials.
+Email: example@gmail.com
+Password (typing will be hidden):
+Authentication successful.
+```
 - Step 6 :Install [Gunicorn](https://pypi.org/project/gunicorn/),Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX.The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resource usage, and fairly speedy .
 
 ```
@@ -77,7 +89,12 @@ pip install gunicorn
 ```
 - Step 7 :To show the currently installed package with version run the command below
 ```
-$ pip freeze 
+pip freeze
+
+```
+output:
+
+```
 
 
 Django==3.0.8
@@ -103,7 +120,12 @@ pip freeze > requirements.txt
 - Step 9 : Initialized the folder in the Git repository
 
 ```
-$ git init
+git init
+
+```
+output:
+
+```
 
 Initialized empty Git repository in /home/steffy/Desktop/django-heroku/.git/
 
@@ -129,7 +151,12 @@ git commit -m "Initial Commit"
 
 - Step 14 :Create an app in Heroku.If the name you had given is existing then change the name and create another name.At first I had given mypythondjangoapp as my app name , it was an existing one .Then I changed it to myawesomepythondjangoapp,it was a unique name so it had create myawesomepythondjangoapp in heroku.
 ```
-$ heroku create mypythondjangoapp
+heroku create mypythondjangoapp
+
+```
+output:
+
+```
 
 Creating ⬢ mypythondjangoapp... !
  ▸    Name mypythondjangoapp is already taken
@@ -140,7 +167,7 @@ https://myawesomepythondjangoapp.herokuapp.com/ | https://git.heroku.com/myaweso
 ```
 - Step 15 : Open your App in Heroku.
 ```
-$ heroku open
+heroku open
 
 ```
 - Step 16 :  Push the data to the git after commiting the changes.
@@ -158,7 +185,12 @@ STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles')
 
 - Step 18 : Do the steps 11 -13 to commit the changes in the git and Push the data to the heroku master using the step 16 then run the command in Step 15.It will shows an aplication error with heroku logs --tail.Run the command below
 ```
-$ heroku logs --tail
+heroku logs --tail
+
+```
+output:
+
+```
 
 2020-07-13T11:33:59.006251+00:00 heroku[router]: at=error code=H14 desc="No web processes running" method=GET path="/favicon.ico" host=myawesomepythondjangoapp.herokuapp.com request_id=b308cc3e-aa77-4f5d-a9a8-b6adecd3e2fe fwd="59.99.38.203" dyno= connect= service= status=503 bytes= protocol=https
 
@@ -173,6 +205,7 @@ web: gunicorn djangoProject1.wsgi
 ```
 
 - Step 20 : Do the steps 11 -13 to commit the changes in the git and Push the data to the heroku master using the step 16 then run the command in Step 15 to open the application.It will shows an error DisallowedHost.
+
 ```
 DisallowedHost at /
 Invalid HTTP_HOST header: 'myawesomepythondjangoapp.herokuapp.com'. You may need to add 'myawesomepythondjangoapp.herokuapp.com' to ALLOWED_HOSTS.
@@ -197,21 +230,29 @@ Server time:	Mon, 13 Jul 2020 12:18:04 +0000
 
 ```
 - Step 21 : You may need to add host address to ALLOWED_HOSTS.So go to settings.py in the project folder.there you can see ALLOWED_HOSTS = [] ,paste the app address inside it as shown below
+
 ```
 ALLOWED_HOSTS = ['myawesomepythondjangoapp.herokuapp.com']
 
 ```
 
-- Step 22 :  Do the steps 11 -13 to commit the changes in the git and Push the data to the heroku master using the step 16 then run the command in Step 15 to open the application.It will shows your website.
+- Step 22 :  Do the steps 11 -13 to commit the changes in the git and Push the data to the heroku master using the step 16 then run the command in Step 15 to open the application.It shows your website.
 
 - Step 23 : Heroku add-ons are components that support your application, such as data storage, monitoring, analytics, data processing, and more. These are fully maintained for you by either a third-party provider or by Heroku.
+
 ```
 heroku addons
 
 ```
 - Step 24 :  Add a PostgreSQL database to your app in heroku.hobby-dev is a free plan in heroku.
+
 ```
-$ heroku addons:create heroku-postgresql:hobby-dev
+heroku addons:create heroku-postgresql:hobby-dev
+
+```
+output:
+
+```
 
 Creating postgresql-metric-21979... done, (free)
 Adding postgresql-metric-21979 to myawesomepythondjangoapp... done
@@ -220,11 +261,14 @@ Database has been created and is available
 
 ```
 - Step 25 :  To automatically configure your  application in heroku ,install django-heroku.The django-heroku package automatically configures your Django application to work on Heroku.Django 2.0 is targeted, but older versions of Django should be compatible. Only Python 3 is supported.
+
 ```
 pip install django-heroku
 
 ```
-- Step 26 :  Go to settings.py and import django-heroku.This is a Django library for Heroku applications that ensures a seamless deployment and development experience.
+- Step 26 :  Go to settings.py and import django-heroku.This is a Django library for Heroku applications that ensures a seamless deployment and development 
+experience.
+
 ```
 import django_heroku
 
@@ -233,6 +277,7 @@ django_heroku.settings(locals())
 
 ```
 - Step 27 :  Save the currently installed package with version in  requirements.txt file.
+
 ```
 pip freeze > reqirements.txt
 
@@ -241,10 +286,12 @@ pip freeze > reqirements.txt
 
 - Step 29 :To Login in the django admin,Make migration in the heroku app.Run python manage.py migrate in heroku cli.
 ```
-$ heroku run python manage.py migrate
+heroku run python manage.py migrate
 
+```
+output:
 
-
+```
 
 Running python manage.py migrate on ⬢ myawesomepythondjangoapp... up, run.6653 (Free)
 Operations to perform:
@@ -282,7 +329,12 @@ Running migrations:
 ```
 - Step 30 :To create a super user in django admin, have to move inside  the heroku machine.Run bash moves to the heroku machine which are called dianos they are  linux systems.So had to run linux commamnds inside it
 ```
-$ heroku run bash
+heroku run bash
+
+```
+output:
+
+```
 
 Running bash on ⬢ myawesomepythondjangoapp... up, run.1287 (Free)
 
